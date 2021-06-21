@@ -45,9 +45,9 @@ public class AudioClip {
     String[] classnames = new String[0];
     try {
       try {
-        BufferedReader reader =
-            new BufferedReader(
-                new InputStreamReader(AudioClip.class.getResourceAsStream("players.txt")));
+        final InputStream resourceAsStream =
+            AudioClip.class.getClassLoader().getResourceAsStream("free/util/audio/players.txt");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(resourceAsStream));
 
         Vector tempVec = new Vector();
         String line;
